@@ -12,6 +12,7 @@ Create a Console based Calculator in C#.
 - There should be Unit Tests on all classes and methods you create.
 - Your solution should have at least 2 total projects. Unit Tests should be in it's own project.
 - This is an OOP focused class. Therefore, there will be classes. No implementations should be done within the `Program` class and `Main` method.
+- If a user submits an incomplete command or expression, the calculator should **not** attempt to evaluate it and print out a useful message.
 
 ## How it should work
 
@@ -76,8 +77,6 @@ In addition to math expressions, your calculator should accept the following com
 - `lastq` - prints the last entered command or expression
 
 
-## Advanced
-
 ### Constants
 
 For the chosen few, you get the implement the concept of 'constants' in the caluculator. See below for how it should work:
@@ -89,5 +88,14 @@ For the chosen few, you get the implement the concept of 'constants' in the calu
    = 3
 [2]> 1 + x
    = 4
-[3]>
+[3]> x = 4
+   = Error!
 ```
+
+#### Constants Specifications
+
+1. Any lowercase letter of the alphabet can be a constant.
+2. Calculator should be case insensitive. `A` is considered the same as `a`.
+3. Constants can only be defined once per session.
+4. Defined constants can be used in math expressions
+5. Undefined constants can not be used and if used should print a helful message.
