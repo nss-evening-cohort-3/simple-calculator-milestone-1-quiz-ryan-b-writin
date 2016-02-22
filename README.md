@@ -97,3 +97,8 @@ For the chosen few, you get the implement the concept of 'constants' in the calu
 3. Constants can only be defined once per session.
 4. Defined constants can be used in math expressions
 5. Using undefined constants should result in a printed a helpful message noting the constant is undefined.
+
+
+## Guidance
+
+[Read GUIDANCE for assistance on progressing through the project](https://github.com/jcockhren/simple-calculator/blob/master/GUIDANCE.md)
