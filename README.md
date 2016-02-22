@@ -6,15 +6,13 @@ Create a Console based Calculator in C#.
 
 ## Rules
 
-- You can work in pairs if you like, but it's not required.
 - Everyone forks this repo (then clone your fork).
-- Everyone has until the beginning of class on Saturday to complete this task (this includes pushing to github)
 - There should be Unit Tests on all classes and methods you create.
 - Your solution should have at least 2 total projects. Unit Tests should be in it's own project.
-- This is an OOP focused class. Therefore, there will be classes. No implementations should be done within the `Program` class and `Main` method.
-- If a user submits an incomplete command or expression, the calculator should **not** attempt to evaluate it and print out a useful message.
+- This is an OOP focused class. Therefore, there will be classes. Your `Program` class and `Main` method should only be responsible for receiving user input and printing output.
+- If a user submits an incomplete command or expression, the calculator should **not** attempt to evaluate it but print out a useful message.
 
-## How it should work
+## Overview of how it should work
 
 Starting your console application should create a prompt that looks like:
 
@@ -98,4 +96,4 @@ For the chosen few, you get the implement the concept of 'constants' in the calu
 2. Calculator should be case insensitive. `A` is considered the same as `a`.
 3. Constants can only be defined once per session.
 4. Defined constants can be used in math expressions
-5. Undefined constants can not be used and if used should print a helful message.
+5. Using undefined constants should result in a printed a helpful message noting the constant is undefined.
