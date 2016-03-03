@@ -10,7 +10,7 @@ Using Test Driven Development, create an **Expression** class that will break do
 
 1. Prove you can extract the terms of the expression.
 2. Prove you can extract the operation embedded in the expression.
-3. Ensure you have examples of GOOD and BAD input and have you **Parse** class throw an exception when there's an error.
+3. Ensure you have examples of GOOD and BAD input and have your **Expression** class throw an exception when there's an error.
 
 ### Hints
 - Your expression should work with and without spaces. (i.e. both `2+1` and `2 + 1` should work)
