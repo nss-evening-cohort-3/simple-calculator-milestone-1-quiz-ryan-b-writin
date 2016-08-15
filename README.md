@@ -101,4 +101,4 @@ For the chosen few, you get the implement the concept of 'constants' in the calu
 
 ## Guidance
 
-[Read GUIDANCE for assistance on progressing through the project](https://github.com/jcockhren/simple-calculator/blob/master/GUIDANCE.md)
+[Read GUIDANCE for assistance on progressing through the project](https://github.com/nashville-software-school/mastery-exercise-simple-calculator/blob/master/GUIDANCE.md)
