@@ -16,26 +16,36 @@ namespace SimpleCalculator
             while (_continue)
             {
                 string prompt = "[" + counter + "]> ";
-                Console.WriteLine(prompt);
+                Console.Write(prompt);
                 counter++;
                 string command = Console.ReadLine();
-                if (command == "quit")
+                switch (command)
                 {
-                    _continue = false;
-                }
-                else
-                {
-                    Expression newExpression = new Expression(command);
-                    if (newExpression.exceptionCaught)
-                    {
-                        Console.WriteLine("invalid input!!");
-                    }
-                    else
-                    {
-                        Evaluation newEvaluation = new Evaluation(newExpression.firstTerm, newExpression.secondTerm, newExpression._operator);
-                        Console.WriteLine(newEvaluation.result);
-                    }
-                }
+                    case "quit":
+                        _continue = false;
+                        break;
+                    case "exit":
+                        _continue = false;
+                        break;
+                    case "last":
+                        Console.WriteLine("last result");
+                        break;
+                    case "lastq":
+                        Console.WriteLine("last command");
+                        break;
+                    default:
+                        Expression newExpression = new Expression(command);
+                        if (newExpression.exceptionCaught)
+                        {
+                            Console.WriteLine("invalid input!!");
+                        }
+                        else
+                        {
+                            Evaluation newEvaluation = new Evaluation(newExpression.firstTerm, newExpression.secondTerm, newExpression._operator);
+                            Console.WriteLine(newEvaluation.result);
+                        }
+                        break;
+                 }
             }
             Console.WriteLine("goodbye! press a key to exit");
             Console.ReadLine();
