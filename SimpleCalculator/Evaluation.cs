@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class Evaluation
+    public class Evaluation
     {
         public int result { get; set; }
         public Evaluation (int firstTerm, int secondTerm, string operation)

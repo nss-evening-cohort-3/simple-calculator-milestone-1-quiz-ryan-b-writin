@@ -16,13 +16,22 @@ namespace SimpleCalculator
             while (_continue)
             {
                 string prompt = "[" + counter + "]> ";
-                Console.WriteLine(prompt);
+                Console.Write(prompt);
                 counter++;
                 string command = Console.ReadLine();
                 switch (command)
                 {
                     case "quit":
                         _continue = false;
+                        break;
+                    case "exit":
+                        _continue = false;
+                        break;
+                    case "last":
+                        Console.WriteLine("last result");
+                        break;
+                    case "lastq":
+                        Console.WriteLine("last command");
                         break;
                     default:
                         Expression newExpression = new Expression(command);
