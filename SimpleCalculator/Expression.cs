@@ -37,7 +37,6 @@ namespace SimpleCalculator
             }
             catch (InvalidOperationException)
             {
-                Console.WriteLine("you did it bad");
                 exceptionCaught = true;
             }
         }
