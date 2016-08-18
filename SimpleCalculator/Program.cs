@@ -12,7 +12,7 @@ namespace SimpleCalculator
         {
             int counter = 1;
             bool _continue = true;
-
+            PreviousCommands prev = new PreviousCommands();
             while (_continue)
             {
                 string prompt = "[" + counter + "]> ";
@@ -28,10 +28,10 @@ namespace SimpleCalculator
                         _continue = false;
                         break;
                     case "last":
-                        Console.WriteLine("last result");
+                        Console.WriteLine(prev.GetPrevCommand());
                         break;
                     case "lastq":
-                        Console.WriteLine("last command");
+                        Console.WriteLine(prev.GetPrevResult());
                         break;
                     default:
                         Expression newExpression = new Expression(command);
@@ -41,8 +41,10 @@ namespace SimpleCalculator
                         }
                         else
                         {
+                            prev.prevCommand.Push(command);
                             Evaluation newEvaluation = new Evaluation(newExpression.firstTerm, newExpression.secondTerm, newExpression._operator);
                             Console.WriteLine(newEvaluation.result);
+                            prev.prevResult.Push(newEvaluation.result.ToString());
                         }
                         break;
                  }
