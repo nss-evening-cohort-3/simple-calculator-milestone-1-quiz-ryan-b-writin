@@ -12,13 +12,13 @@ namespace SimpleCalculator
         {
             int counter = 1;
             bool _continue = true;
-            PreviousCommands prev = new PreviousCommands();
+            SpecialCommand prev = new SpecialCommand();
             while (_continue)
             {
                 string prompt = "[" + counter + "]> ";
                 Console.Write(prompt);
                 counter++;
-                string command = Console.ReadLine();
+                string command = Console.ReadLine().ToLower();
                 switch (command)
                 {
                     case "quit":
@@ -51,14 +51,6 @@ namespace SimpleCalculator
             }
             Console.WriteLine("goodbye! press a key to exit");
             Console.ReadLine();
-            //step 1- pass a number to expression class
-            //Console.WriteLine("Simple Calculato!!");
-            //Console.Write(prompt);
-            //counter++;
-            //string userInput = Console.ReadLine();
-            //Expression newExpression = new Expression(userInput);
-            //Console.WriteLine(newExpression.firstTerm + newExpression._operator + newExpression.secondTerm);
-            //Console.ReadLine();
         }
 
     }

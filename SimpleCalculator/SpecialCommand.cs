@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class PreviousCommands
+    public class SpecialCommand
     {
         public Stack<string> prevCommand = new Stack<string>();
         public Stack<string> prevResult = new Stack<string>();
+        //use a dictionary to put in constants
 
         public string GetPrevCommand()
         {
