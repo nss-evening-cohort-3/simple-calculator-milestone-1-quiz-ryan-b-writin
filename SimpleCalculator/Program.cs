@@ -12,13 +12,13 @@ namespace SimpleCalculator
         {
             int counter = 1;
             bool _continue = true;
-
+            SpecialCommand prev = new SpecialCommand();
             while (_continue)
             {
                 string prompt = "[" + counter + "]> ";
                 Console.Write(prompt);
                 counter++;
-                string command = Console.ReadLine();
+                string command = Console.ReadLine().ToLower();
                 switch (command)
                 {
                     case "quit":
@@ -28,10 +28,10 @@ namespace SimpleCalculator
                         _continue = false;
                         break;
                     case "last":
-                        Console.WriteLine("last result");
+                        Console.WriteLine(prev.GetPrevCommand());
                         break;
                     case "lastq":
-                        Console.WriteLine("last command");
+                        Console.WriteLine(prev.GetPrevResult());
                         break;
                     default:
                         Expression newExpression = new Expression(command);
@@ -41,22 +41,16 @@ namespace SimpleCalculator
                         }
                         else
                         {
+                            prev.prevCommand.Push(command);
                             Evaluation newEvaluation = new Evaluation(newExpression.firstTerm, newExpression.secondTerm, newExpression._operator);
                             Console.WriteLine(newEvaluation.result);
+                            prev.prevResult.Push(newEvaluation.result.ToString());
                         }
                         break;
                  }
             }
             Console.WriteLine("goodbye! press a key to exit");
             Console.ReadLine();
-            //step 1- pass a number to expression class
-            //Console.WriteLine("Simple Calculato!!");
-            //Console.Write(prompt);
-            //counter++;
-            //string userInput = Console.ReadLine();
-            //Expression newExpression = new Expression(userInput);
-            //Console.WriteLine(newExpression.firstTerm + newExpression._operator + newExpression.secondTerm);
-            //Console.ReadLine();
         }
 
     }
