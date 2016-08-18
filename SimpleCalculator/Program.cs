@@ -19,23 +19,24 @@ namespace SimpleCalculator
                 Console.WriteLine(prompt);
                 counter++;
                 string command = Console.ReadLine();
-                if (command == "quit")
+                switch (command)
                 {
-                    _continue = false;
-                }
-                else
-                {
-                    Expression newExpression = new Expression(command);
-                    if (newExpression.exceptionCaught)
-                    {
-                        Console.WriteLine("invalid input!!");
-                    }
-                    else
-                    {
-                        Evaluation newEvaluation = new Evaluation(newExpression.firstTerm, newExpression.secondTerm, newExpression._operator);
-                        Console.WriteLine(newEvaluation.result);
-                    }
-                }
+                    case "quit":
+                        _continue = false;
+                        break;
+                    default:
+                        Expression newExpression = new Expression(command);
+                        if (newExpression.exceptionCaught)
+                        {
+                            Console.WriteLine("invalid input!!");
+                        }
+                        else
+                        {
+                            Evaluation newEvaluation = new Evaluation(newExpression.firstTerm, newExpression.secondTerm, newExpression._operator);
+                            Console.WriteLine(newEvaluation.result);
+                        }
+                        break;
+                 }
             }
             Console.WriteLine("goodbye! press a key to exit");
             Console.ReadLine();
