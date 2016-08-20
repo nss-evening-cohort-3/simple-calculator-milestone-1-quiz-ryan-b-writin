@@ -16,9 +16,9 @@ namespace SimpleCalculator
             Constants constant = new Constants();
 
             Console.WriteLine("Simple Calculator: Enter simple problems in this format: _ + _");
-            Console.WriteLine("You may set any letter as a constant once in this format: x = _");
-            Console.WriteLine("Input 'Exit' or 'Quit' to quit, 'Lastq' to see your last input,");
-            Console.WriteLine("and 'Last' to see your last result.");
+            Console.WriteLine("You may set each letter as a constant once in this format: x = _");
+            Console.WriteLine("Input 'Exit' or 'Quit' to quit, 'Last' to see your last input,");
+            Console.WriteLine("and 'Lastq' to see your last result.");
             //main loop
             while (_continue)
             {
