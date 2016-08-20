@@ -20,7 +20,7 @@ namespace SimpleCalculator
 
         public void AddToConstants(string key, int number)
         {
-            constants[key] = number;
+            constants[key.ToLower()] = number;
         }
 
         //this method takes three strings. if the operation is valid, it will set the FirstTerm and SecondTerm variables.
@@ -29,8 +29,8 @@ namespace SimpleCalculator
             bool isTheFirstTermAnInt = Int32.TryParse(firstTermString, out firstTerm);
             bool isTheSecondTermAnInt = Int32.TryParse(secondTermString, out secondTerm);
 
-            bool isTheFirstTermInTheDictionary = constants.ContainsKey(firstTermString);
-            bool isTheSecondTermInTheDictionary = constants.ContainsKey(secondTermString);
+            bool isTheFirstTermInTheDictionary = constants.ContainsKey(firstTermString.ToLower());
+            bool isTheSecondTermInTheDictionary = constants.ContainsKey(secondTermString.ToLower());
 
             try
             {
@@ -41,7 +41,7 @@ namespace SimpleCalculator
                     {
                         throw new KeyNotFoundException("second key not found");
                     }
-                    secondTerm = constants[secondTermString];
+                    secondTerm = constants[secondTermString.ToLower()];
                 }
                 //if the operator is equals, the first term must be a letter that is not in the dictionary
                 if (operation == "=")
@@ -49,7 +49,7 @@ namespace SimpleCalculator
                     if (!isTheFirstTermAnInt && !isTheFirstTermInTheDictionary)
                     {
                         AddToConstants(firstTermString, secondTerm);
-                        constantEqualsOperationMessage = firstTermString + "=" + secondTerm ;
+                        constantEqualsOperationMessage = firstTermString.ToLower() + "=" + secondTerm ;
                     }
                     else
                     {
@@ -63,7 +63,7 @@ namespace SimpleCalculator
                     {
                         throw new KeyNotFoundException("first key not found");
                     }
-                    firstTerm = constants[firstTermString];
+                    firstTerm = constants[firstTermString.ToLower()];
                 }
             }
             catch(KeyNotFoundException e)

@@ -30,25 +30,26 @@ namespace SimpleCalculator.Tests
         public void SetAConstantOnlyOnce()
         {
             Constants constant = new Constants();
-            constant.EvaluateConstants("x", "2", "=");
-            constant.EvaluateConstants("x", "3", "=");
+            constant.EvaluateConstants("w", "2", "=");
+            constant.EvaluateConstants("w", "3", "=");
             Assert.IsTrue(constant.exceptionCaught);
         }
         [TestMethod]
         public void FirstDigitIsAConstant()
         {
             Constants constant = new Constants();
-            constant.EvaluateConstants("x", "2", "=");
-            constant.EvaluateConstants("x", "3", "+");
+            constant.EvaluateConstants("r", "2", "=");
+            constant.EvaluateConstants("r", "3", "+");
             int expected = 2;
+            //checks that the method outputs the correct number in place of the letter R
             Assert.AreEqual(constant.firstTerm, expected);
         }
         [TestMethod]
         public void SecondDigitIsAConstant()
         {
             Constants constant = new Constants();
-            constant.EvaluateConstants("x", "2", "=");
-            constant.EvaluateConstants("3", "x", "+");
+            constant.EvaluateConstants("t", "2", "=");
+            constant.EvaluateConstants("3", "t", "+");
             int expected = 2;
             Assert.AreEqual(constant.secondTerm, expected);
         }
@@ -63,10 +64,10 @@ namespace SimpleCalculator.Tests
         public void ConstantEqualsAValidConstant()
         {
             Constants constant = new Constants();
-            constant.EvaluateConstants("x", "2", "=");
-            constant.EvaluateConstants("y", "x", "=");
+            constant.EvaluateConstants("q", "2", "=");
+            constant.EvaluateConstants("b", "q", "=");
             int expected = 2;
-            Assert.AreEqual(constant.constants["y"], expected);
+            Assert.AreEqual(constant.constants["b"], expected);
         }
         [TestMethod]
         public void InvalidConstantIsFirstTerm()
@@ -81,6 +82,15 @@ namespace SimpleCalculator.Tests
             Constants constant = new Constants();
             constant.EvaluateConstants("2", "x", "+");
             Assert.IsTrue(constant.exceptionCaught);
+        }
+        [TestMethod]
+        public void ConstantsAreCaseInsensitive()
+        {
+            Constants constant = new Constants();
+            constant.EvaluateConstants("M", "2", "=");
+            int expected = 2;
+            Assert.AreEqual(constant.constants["m"], expected);
+
         }
     }
 }
