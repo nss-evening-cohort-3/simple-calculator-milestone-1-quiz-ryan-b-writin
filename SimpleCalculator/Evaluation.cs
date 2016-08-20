@@ -9,6 +9,7 @@ namespace SimpleCalculator
     public class Evaluation
     {
         public bool exceptionCaught { get; set; }
+        public bool equalOperation = false;
         public int result { get; set; }
         public Evaluation (int firstTerm, int secondTerm, string operation)
         {
@@ -32,6 +33,7 @@ namespace SimpleCalculator
                         Modulus(firstTerm, secondTerm);
                         break;
                     case "=":
+                        equalOperation = true;
                         break;
                     default:
                         throw new InvalidOperationException("invalid operation");

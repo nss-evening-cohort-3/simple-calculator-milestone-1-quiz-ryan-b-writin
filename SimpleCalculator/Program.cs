@@ -43,9 +43,20 @@ namespace SimpleCalculator
                         else
                         {
                             prev.prevCommand.Push(command);
+
                             constant.EvaluateConstants(newExpression.firstTerm, newExpression.secondTerm, newExpression._operator);
+
                             Evaluation newEvaluation = new Evaluation(constant.firstTerm, constant.secondTerm, newExpression._operator);
-                            Console.WriteLine(newEvaluation.result);
+
+                            if (newEvaluation.equalOperation)
+                            {
+                                Console.WriteLine(constant.constantEqualsOperationMessage);
+                            }
+                            else
+                            {
+                                Console.WriteLine(newEvaluation.result);
+                            }
+
                             prev.prevResult.Push(newEvaluation.result.ToString());
                         }
                         break;

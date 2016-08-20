@@ -11,6 +11,7 @@ namespace SimpleCalculator
         public int firstTerm = 0;
         public int secondTerm = 0;
         public bool exceptionCaught { get; set; }
+        public string constantEqualsOperationMessage { get; set; }
         private Dictionary<string, int> constants = new Dictionary<string, int>();
         public void AddToConstants(string key, int number)
         {
@@ -40,6 +41,7 @@ namespace SimpleCalculator
                     if (!isTheFirstTermAnInt && !isTheFirstTermInTheDictionary)
                     {
                         AddToConstants(firstTermString, secondTerm);
+                        constantEqualsOperationMessage = firstTermString + "=" + secondTerm ;
                     }
                     else
                     {
