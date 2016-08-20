@@ -90,7 +90,6 @@ namespace SimpleCalculator.Tests
             constant.EvaluateConstants("M", "2", "=");
             int expected = 2;
             Assert.AreEqual(constant.constants["m"], expected);
-
         }
     }
 }
