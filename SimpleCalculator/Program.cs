@@ -93,7 +93,7 @@ namespace SimpleCalculator
                         break;
                  }
             }
-            Console.WriteLine("Goodbye! press a key to exit");
+            Console.WriteLine("Goodbye! Press a key to exit");
             Console.ReadLine();
         }
 
