@@ -9,13 +9,19 @@ namespace SimpleCalculator
 {
     public class Expression
     {
-        string CaptureTerms = @"([\w]|\d+)[ ]*([+%=\-\/\*])[ ]*(\d+|[\w])";
+        //The calculator will check these variables after it runs an evaluation
         public string firstTerm { get; set; }
         public string secondTerm { get; set; }
         public string _operator { get; set; }
+
+        //regex captures either a single letter or multiple digits, one of a specific set of operators,
+        //then another single letter or multiple digits. spaces optional.
+        string CaptureTerms = @"([\w]|\d+)[ ]*([+%=\-\/\*])[ ]*(\d+|[\w])";
+
         public bool exceptionCaught { get; set; }
         public string exceptionMessage { get; set; }
 
+        //checks user input against regex and sets three string variables with the two terms and operator
         public Expression(string userInput)
         {
             try

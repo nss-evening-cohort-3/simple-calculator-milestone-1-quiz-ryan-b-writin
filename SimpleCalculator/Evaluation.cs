@@ -8,10 +8,14 @@ namespace SimpleCalculator
 {
     public class Evaluation
     {
+        //the calcuator will check this variable after it runs the evaluation
+        public int result { get; set; }
+
         public bool exceptionCaught { get; set; }
         public string exceptionMessage { get; set; }
         public bool equalOperation = false;
-        public int result { get; set; }
+
+        //this method takes two terms and a string, and sets the result variable
         public Evaluation (int firstTerm, int secondTerm, string operation)
         {
             try

@@ -46,6 +46,7 @@ namespace SimpleCalculator
                         Console.WriteLine(prev.GetPrevResult());
                         break;
                     default:
+
                         //feed user input into an expression class,
                         //which will separate the first term, second term and operator into three strings
                         Expression newExpression = new Expression(command);

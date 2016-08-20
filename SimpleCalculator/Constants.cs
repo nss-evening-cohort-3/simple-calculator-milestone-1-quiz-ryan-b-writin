@@ -8,20 +8,27 @@ namespace SimpleCalculator
 {
     public class Constants
     {
+        //the calculator will check these two numbers after three strings are passed in
         public int firstTerm = 0;
         public int secondTerm = 0;
+
         public bool exceptionCaught { get; set; }
         public string exceptionMessage { get; set; }
         public string constantEqualsOperationMessage { get; set; }
+
         public Dictionary<string, int> constants = new Dictionary<string, int>();
+
         public void AddToConstants(string key, int number)
         {
             constants[key] = number;
         }
+
+        //this method takes three strings. if the operation is valid, it will set the FirstTerm and SecondTerm variables.
         public void EvaluateConstants(string firstTermString, string secondTermString, string operation)
         {
             bool isTheFirstTermAnInt = Int32.TryParse(firstTermString, out firstTerm);
             bool isTheSecondTermAnInt = Int32.TryParse(secondTermString, out secondTerm);
+
             bool isTheFirstTermInTheDictionary = constants.ContainsKey(firstTermString);
             bool isTheSecondTermInTheDictionary = constants.ContainsKey(secondTermString);
 
@@ -64,7 +71,6 @@ namespace SimpleCalculator
                 exceptionCaught = true;
                 exceptionMessage = e.Message;
             }
-
         }
     }
 }
