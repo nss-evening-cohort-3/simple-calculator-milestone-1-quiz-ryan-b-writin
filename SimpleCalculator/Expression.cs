@@ -9,9 +9,9 @@ namespace SimpleCalculator
 {
     public class Expression
     {
-        string CaptureTerms = @"(\d+)[ ]*([+%=\-\/\*])[ ]*(\d+)";
-        public int firstTerm { get; set; }
-        public int secondTerm { get; set; }
+        string CaptureTerms = @"([\w]|\d+)[ ]*([+%=\-\/\*])[ ]*(\d+|[\w])";
+        public string firstTerm { get; set; }
+        public string secondTerm { get; set; }
         public string _operator { get; set; }
         public bool exceptionCaught { get; set; }
 
@@ -23,12 +23,9 @@ namespace SimpleCalculator
 
                 if (m.Success)
                 {
-                    string firstTermString = m.Groups[1].Value;
-                    string secondTermString = m.Groups[3].Value;
-
-                    this.firstTerm = Int32.Parse(firstTermString);
-                    this.secondTerm = Int32.Parse(secondTermString);
-                    this._operator = m.Groups[2].Value;
+                    firstTerm = m.Groups[1].Value;
+                    secondTerm = m.Groups[3].Value;
+                    _operator = m.Groups[2].Value;
                 }
                 else
                 {
