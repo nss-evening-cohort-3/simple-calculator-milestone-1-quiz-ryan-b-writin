@@ -85,7 +85,7 @@ namespace SimpleCalculator
                             }
                             else
                             {
-                                Console.WriteLine(newEvaluation.result);
+                                Console.WriteLine("  = " + newEvaluation.result);
                                 prev.prevResult.Push(newEvaluation.result.ToString());
                             }
                             
