@@ -9,6 +9,7 @@ namespace SimpleCalculator
     public class Evaluation
     {
         public bool exceptionCaught { get; set; }
+        public string exceptionMessage { get; set; }
         public bool equalOperation = false;
         public int result { get; set; }
         public Evaluation (int firstTerm, int secondTerm, string operation)
@@ -36,12 +37,13 @@ namespace SimpleCalculator
                         equalOperation = true;
                         break;
                     default:
-                        throw new InvalidOperationException("invalid operation");
+                        throw new InvalidOperationException("Invalid operator");
                 }
             }
             catch (InvalidOperationException e)
             {
                 exceptionCaught = true;
+                exceptionMessage = e.Message;
             }
 
         }

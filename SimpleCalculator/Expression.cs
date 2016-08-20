@@ -14,6 +14,7 @@ namespace SimpleCalculator
         public string secondTerm { get; set; }
         public string _operator { get; set; }
         public bool exceptionCaught { get; set; }
+        public string exceptionMessage { get; set; }
 
         public Expression(string userInput)
         {
@@ -29,12 +30,13 @@ namespace SimpleCalculator
                 }
                 else
                 {
-                    throw new InvalidOperationException("you messed up");
+                    throw new InvalidOperationException("Invalid input");
                 }
             }
-            catch (InvalidOperationException)
+            catch (InvalidOperationException e)
             {
                 exceptionCaught = true;
+                exceptionMessage = e.Message;
             }
         }
     }

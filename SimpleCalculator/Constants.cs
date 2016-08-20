@@ -11,8 +11,9 @@ namespace SimpleCalculator
         public int firstTerm = 0;
         public int secondTerm = 0;
         public bool exceptionCaught { get; set; }
+        public string exceptionMessage { get; set; }
         public string constantEqualsOperationMessage { get; set; }
-        private Dictionary<string, int> constants = new Dictionary<string, int>();
+        public Dictionary<string, int> constants = new Dictionary<string, int>();
         public void AddToConstants(string key, int number)
         {
             constants[key] = number;
@@ -61,7 +62,7 @@ namespace SimpleCalculator
             catch(KeyNotFoundException e)
             {
                 exceptionCaught = true;
-                Console.WriteLine(e.Message);
+                exceptionMessage = e.Message;
             }
 
         }
