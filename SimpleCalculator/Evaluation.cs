@@ -8,29 +8,42 @@ namespace SimpleCalculator
 {
     public class Evaluation
     {
+        public bool exceptionCaught { get; set; }
+        public string exceptionMessage { get; set; }
+        public bool equalOperation = false;
         public int result { get; set; }
         public Evaluation (int firstTerm, int secondTerm, string operation)
         {
-            switch (operation)
+            try
             {
-                case "+":
-                    Additon(firstTerm, secondTerm);
-                    break;
-                case "-":
-                    Subtraction(firstTerm, secondTerm);
-                    break;
-                case "*":
-                    Multiplication(firstTerm, secondTerm);
-                    break;
-                case "/":
-                    Division(firstTerm, secondTerm);
-                    break;
-                case "%":
-                    Modulus(firstTerm, secondTerm);
-                    break;
-                default:
-                    Console.WriteLine("error");
-                    break;
+                switch (operation)
+                {
+                    case "+":
+                        Additon(firstTerm, secondTerm);
+                        break;
+                    case "-":
+                        Subtraction(firstTerm, secondTerm);
+                        break;
+                    case "*":
+                        Multiplication(firstTerm, secondTerm);
+                        break;
+                    case "/":
+                        Division(firstTerm, secondTerm);
+                        break;
+                    case "%":
+                        Modulus(firstTerm, secondTerm);
+                        break;
+                    case "=":
+                        equalOperation = true;
+                        break;
+                    default:
+                        throw new InvalidOperationException("Invalid operator");
+                }
+            }
+            catch (InvalidOperationException e)
+            {
+                exceptionCaught = true;
+                exceptionMessage = e.Message;
             }
 
         }

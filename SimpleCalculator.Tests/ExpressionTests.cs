@@ -11,7 +11,7 @@ namespace SimpleCalculator.Tests
         public void CaptureTheFirstTerm()
         {
             string input = "326456 + 4232";
-            int expected = 326456;
+            string expected = "326456";
             Expression newExpression = new Expression(input);
             Assert.AreEqual(newExpression.firstTerm, expected);
         }
@@ -19,7 +19,7 @@ namespace SimpleCalculator.Tests
         public void CaptureTheSecondTerm()
         {
             string input = "23423 + 32433";
-            int expected = 32433;
+            string expected = "32433";
             Expression newExpression = new Expression(input);
             Assert.AreEqual(newExpression.secondTerm, expected);
         }
