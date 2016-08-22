@@ -26,6 +26,7 @@ namespace SimpleCalculator
                 string prompt = "[" + counter + "]> ";
                 Console.Write(prompt);
                 counter++;
+                constant.exceptionCaught = false;
 
                 //interpret & evaluate user input
                 string command = Console.ReadLine().ToLower();
@@ -54,6 +55,7 @@ namespace SimpleCalculator
                         if (newExpression.exceptionCaught)
                         {
                             Console.WriteLine(newExpression.exceptionMessage);
+                            break;
                         }
                         else
                         {
@@ -66,6 +68,7 @@ namespace SimpleCalculator
                             if (constant.exceptionCaught)
                             {
                                 Console.WriteLine(constant.exceptionMessage);
+                                break;
                             }
 
                             //feed the two ints and the operation string into evaluation class,
@@ -74,10 +77,11 @@ namespace SimpleCalculator
                             if (newEvaluation.exceptionCaught)
                             {
                                 Console.WriteLine(newEvaluation.exceptionMessage);
+                                break;
                             }
 
                             //if an equal operation was carried out, print out a different result.
-                            //push the result to the 'last' stack.
+                            //push the result to the 'lastq' stack
                             if (newEvaluation.equalOperation)
                             {
                                 Console.WriteLine(constant.constantEqualsOperationMessage);

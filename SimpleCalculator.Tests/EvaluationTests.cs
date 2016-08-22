@@ -45,6 +45,12 @@ namespace SimpleCalculator.Tests
             int expected = 1;
             Assert.AreEqual(evaluation.result, expected);
         }
-
+        [TestMethod]
+        public void DivideByZero()
+        {
+            Evaluation evaluation = new Evaluation(6, 0, "/");
+            string expected = "Attempted to divide by zero.";
+            Assert.AreEqual(evaluation.exceptionMessage, expected);
+        }
     }
 }

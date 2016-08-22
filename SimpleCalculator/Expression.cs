@@ -16,7 +16,7 @@ namespace SimpleCalculator
 
         //regex captures either a single letter or multiple digits, one of a specific set of operators,
         //then another single letter or multiple digits. spaces optional.
-        string CaptureTerms = @"([\w]|\d+)[ ]*([+%=\-\/\*])[ ]*(\d+|[\w])";
+        string CaptureTerms = @"^([\w]|\d+)[ ]*([+%=\-\/\*])[ ]*(\d+|[\w])$";
 
         public bool exceptionCaught { get; set; }
         public string exceptionMessage { get; set; }
@@ -36,7 +36,7 @@ namespace SimpleCalculator
                 }
                 else
                 {
-                    throw new InvalidOperationException("Invalid input");
+                    throw new InvalidOperationException("Invalid input. USe this format: _ + _");
                 }
             }
             catch (InvalidOperationException e)
