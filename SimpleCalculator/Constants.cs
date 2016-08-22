@@ -39,7 +39,7 @@ namespace SimpleCalculator
                 {
                     if (!isTheSecondTermInTheDictionary)
                     {
-                        throw new KeyNotFoundException("second key not found");
+                        throw new KeyNotFoundException("Second constant not found.");
                     }
                     secondTerm = constants[secondTermString.ToLower()];
                 }
@@ -53,7 +53,7 @@ namespace SimpleCalculator
                     }
                     else
                     {
-                        throw new KeyNotFoundException("first term is invalid");
+                        throw new KeyNotFoundException("Invalid operation. First term must be an unassigned constant.");
                     }
                 }
                 //if the first term is not a number, it must be in the dictionary.
@@ -61,7 +61,7 @@ namespace SimpleCalculator
                 {
                     if (!isTheFirstTermInTheDictionary)
                     {
-                        throw new KeyNotFoundException("first key not found");
+                        throw new KeyNotFoundException("First constant not found.");
                     }
                     firstTerm = constants[firstTermString.ToLower()];
                 }

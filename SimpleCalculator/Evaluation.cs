@@ -44,7 +44,7 @@ namespace SimpleCalculator
                         throw new InvalidOperationException("Invalid operator");
                 }
             }
-            catch (InvalidOperationException e)
+            catch (Exception e)
             {
                 exceptionCaught = true;
                 exceptionMessage = e.Message;
@@ -67,6 +67,7 @@ namespace SimpleCalculator
         }
         private void Division(int firstTerm, int secondTerm)
         {
+
             result = (firstTerm / secondTerm);
         }
         private void Modulus(int firstTerm, int secondTerm)
